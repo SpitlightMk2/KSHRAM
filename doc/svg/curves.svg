@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="80mm"
+   height="30mm"
+   viewBox="0 0 80 30"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="curves.svg"
+   inkscape:export-filename="arch.png"
+   inkscape:export-xdpi="150"
+   inkscape:export-ydpi="150"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.8721465"
+     inkscape:cx="55.017061"
+     inkscape:cy="26.440238"
+     inkscape:window-width="1920"
+     inkscape:window-height="974"
+     inkscape:window-x="3829"
+     inkscape:window-y="1306"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none"
+       d="M 74.30438,21.985195 H 3.751889"
+       id="path1" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#0044aa;stroke-width:0.221135;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       d="M 39.687562,7.2849517 C 33.196607,7.4054381 21.033512,12.785068 14.187028,21.983233"
+       id="path3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#0044aa;stroke-width:0.221135;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       d="m 39.707423,7.2909438 c 6.490955,0.120486 18.65405,5.5001172 25.500534,14.6982822"
+       id="path3-3"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

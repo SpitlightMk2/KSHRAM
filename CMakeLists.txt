@@ -1,0 +1,52 @@
+# CMake版本
+cmake_minimum_required(VERSION 3.10)
+# C++标准版本
+set(CMAKE_CXX_STANDARD 17)
+
+# 项目设置
+project(KSHRAM VERSION 1.0.0)
+
+# 选择编译器
+# SET(CMAKE_CXX_COMPILER "/usr/bin/gcc")
+SET(CMAKE_C_COMPILER "gcc")
+SET(CMAKE_CXX_COMPILER "g++")
+
+SET(USE_AVX2 ON)
+SET(USE_64BIT ON)
+
+# 是否是Qt项目
+if(QT_QMAKE_EXECUTABLE)
+set(KSHRAM_QT_MODE ON)
+else()
+set(KSHRAM_QT_MODE OFF)
+endif()
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+SET(CMAKE_CXX_FLAGS_DEBUG "-g ${CMAKE_CXX_FLAGS_DEBUG}")
+SET(CMAKE_CXX_FLAGS_RELEASE "-static -O2 -s ${CMAKE_CXX_FLAGS_RELEASE}")
+
+# 启用AVX2
+IF(USE_AVX2)
+    ADD_COMPILE_OPTIONS("-mavx2")
+ENDIF()
+
+# 编译为64bit程序
+IF(USE_64BIT)
+    ADD_COMPILE_OPTIONS("-m64")
+ENDIF()
+
+#导出编译命令
+SET(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
+
+# 输出二进制文件位于buildpath/bin下
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+
+# global_includes
+include_directories(${PROJECT_SOURCE_DIR})
+
+# 主程序
+add_subdirectory(src)
+
+
+

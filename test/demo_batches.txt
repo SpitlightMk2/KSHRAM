@@ -1,0 +1,76 @@
+batch define split_open
+{
+    // 先写入两个关键点
+    mark split 0;
+    delay 1 mark split 100;
+    // 曲线化
+    split p t 32;
+}
+
+batch define split_close
+{
+    // 先写入两个关键点
+    mark split 100;
+    delay 1 mark split 0;
+    // 曲线化
+    split p t 32;
+}
+
+batch define bump1
+{
+    ztadd a 1 32 25;
+    zbadd a 1 32 25;
+}
+
+batch define bump8
+{
+	loop 8 2
+    {
+        batch call bump1;
+    }
+}
+
+batch define fifstair
+{
+    note A 0;
+    note B 4/5;
+    note C 8/5;
+    note D 12/5;
+    note L 16/5 4;
+    note R 16/5 4;
+}
+
+batch define fifsnake
+{
+    // 生成
+    knob L 0 4/5 0 50;
+    knobadd L 8/5 0;
+    knobadd L 12/5 50;
+    knobadd L 16/5 0;
+    knobadd L 4 50;
+    slam L 4 50 0;
+    // 曲线化
+    cl p t;
+    delay 4/5 cl p f;
+    delay 8/5 cl p t;
+    delay 12/5 cl p f;
+    delay 16/5 cl p t;
+}
+
+batch define knob_example
+{
+    // 左侧
+    knob L 0 2 0 50;
+    slam L 2 50 0;
+    knobadd L 4 50;
+    slam L 4 50 0;
+    // 右侧
+    knob R 0 2/3 0 50;
+    knobadd R 4/3 0;
+    knobadd R 2 50;
+    slam R 2 50 0;
+    knobadd R 8/3 50;
+    knobadd R 10/3 0;
+    knobadd R 4 50;
+    slam R 4 50 0;
+}

@@ -1,0 +1,14 @@
+.cache
+.vscode
+
+/build
+/build_Qt_*
+/ksh
+/deploy
+/playground
+/code_archive
+
+/Note.txt
+/summary.bat
+/CMakeLists.txt.user
+/CMakeLists.txt.user*
