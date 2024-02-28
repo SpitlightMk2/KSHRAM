@@ -98,9 +98,19 @@ lisp-style conditional scripts.
 
 如果您愿意翻译命令说明文档，或者美化其格式/文件结构，我将不胜感激。
 
-如果文档当中有任何错误（特别是笔误），请在issue中告知。
+如果文档当中有任何错误（特别是笔误），或是程序出现bug，欢迎在issue中告知。
+
+对于bug报告，希望能够附上能够复现bug的谱面文件。
+
+最后，欢迎为程序提供图标和名称的建议！
 
 
 ## Contribute to this project
 
 Translations of the command document in need!
+
+You can report any errors in the document and bugs in the program in Issues.
+
+A chart that reproduces the bug is required in the report.
+
+Lastly, feel free to give name suggestions and icons for this program!

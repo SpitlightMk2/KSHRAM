@@ -11,6 +11,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         kshram_qt_bridge.cpp
+        ${CMAKE_SOURCE_DIR}/icon/icon.rc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

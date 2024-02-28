@@ -1,6 +1,7 @@
 add_executable(KSHRAM
     console_ui.cpp
     main.cpp
+    ${CMAKE_SOURCE_DIR}/icon/icon.rc
 )
 
 # 包含versions.h
