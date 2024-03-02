@@ -218,6 +218,7 @@ Entry::Entry(const string& ksh) {
 
 // 导入ksh
 void Entry::ImportFromKsh(const string& ksh) {
+	this->other_parts.clear();
 	vector<string> ksh_split = Split(ksh, '\n');
 	bool read_anything = false;
 	for (string& str : ksh_split) {
@@ -247,7 +248,7 @@ void Entry::ImportFromKsh(const string& ksh) {
 			}
 			// 其他有的没的。虽然不处理但是写回时也要放回去。
 			else {
-				this->other_parts += str + "\n";
+				this->other_parts += str + CRLF();
 			}
 			
 			read_anything = true;
@@ -263,10 +264,10 @@ void Entry::ImportFromKsh(const string& ksh) {
 string Entry::ExportToKsh() const {
 	string output = "";
 	for (const Mark& mark : this->marks) {
-		output += mark.ToString() + "\n";
+		output += mark.ToString() + CRLF();
 	}
 	if (!this->comments.empty()) {
-		output += this->comments + "\n";
+		output += this->comments + CRLF();
 	}
 	output += this->other_parts;
 	output += this->notes;
@@ -278,6 +279,7 @@ string Entry::ExportToKsh() const {
 
 // 从流输入
 istream& operator>> (istream& is, Entry& entry) {
+	entry.other_parts.clear();
 	string temp;
 	bool read_anything = false;
 	while (true) {
@@ -313,7 +315,7 @@ istream& operator>> (istream& is, Entry& entry) {
 			}
 			// 其他有的没的。虽然不处理但是写回时也要放回去。
 			else {
-				entry.other_parts += temp + "\n";
+				entry.other_parts += temp + CRLF();
 			}
 			read_anything = true;
 		}
@@ -326,7 +328,7 @@ istream& operator>> (istream& is, Entry& entry) {
 	return is;
 }
 
-// 输出到流
+// 输出到流，查看其中内容。
 ostream& operator<< (ostream& os, const Entry& entry) {
 	os << "Marks:\n";
 	for (const Mark& mark : entry.marks) {

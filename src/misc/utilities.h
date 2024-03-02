@@ -22,7 +22,6 @@
 
 #include <algorithm>
 #include <cmath>
-#include <memory>
 #include <numeric>
 #include <string>
 #include <vector>
@@ -109,6 +108,11 @@ inline double LinearInterpolation(
 /* #endregion */
 
 /* #region string utils */
+
+inline std::string CRLF()
+{
+    return "\r\n";
+}
 
 /// 切去字符串两端的空白，会直接写入传入的字符串上。
 inline void Strip(std::string& str)

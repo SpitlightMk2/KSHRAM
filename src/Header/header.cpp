@@ -19,64 +19,81 @@
 */
 
 #include "header.h"
+
 #include "src/misc/utilities.h"
+
 
 using namespace std;
 
-void Header::ImportFromKsh(const std::string& ksh) {
-	vector<string> lines = Split(ksh, '\n');
+void Header::ImportFromKsh(const std::string& ksh)
+{
+    vector<string> lines = Split(ksh, '\n');
 
-	for (string& line : lines) {
-		auto split_pos = line.find_first_of('=');
-		std::string mark_id(line.data(), split_pos);
-		std::string_view mark_val(line.data() + split_pos + 1);
+    for (string& line : lines)
+    {
+        Strip(line);
+        auto split_pos = line.find_first_of('=');
+        std::string mark_id(line.data(), split_pos);
+        std::string_view mark_val(line.data() + split_pos + 1);
 
-		this->items[mark_id] = mark_val;
-	}
+        this->items[mark_id] = mark_val;
+    }
 }
 
-std::string Header::ExportToKsh() const {
-	std::string output = "";
-	for (auto& pair : this->items) {
-		output += pair.first + "=" + pair.second + "\n";
-	}
+std::string Header::ExportToKsh() const
+{
+    std::string output = "";
+    for (auto iter = this->items.begin(); iter != this->items.end(); ++iter)
+    {
+        if (iter != this->items.begin())
+        {
+            output += CRLF();
+        }
+        output += iter->first + "=" + iter->second;
+    }
 
-	output.pop_back();
+    output.pop_back();
 
-	return output;
+    return output;
 }
 
-istream& operator>>(istream& is, Header& header) {
-	string line;
-	getline(is, line);
-	Strip(line);
-	while (line != "--") {
-		if (line.empty()) {
-			continue;
-		}
-		auto split_pos = line.find_first_of('=');
-		std::string mark_id(line.data(), split_pos);
-		std::string_view mark_val(line.data() + split_pos + 1);
+istream& operator>>(istream& is, Header& header)
+{
+    string line;
+    getline(is, line);
+    Strip(line);
+    while (line != "--")
+    {
+        if (line.empty())
+        {
+            continue;
+        }
+        auto split_pos = line.find_first_of('=');
+        std::string mark_id(line.data(), split_pos);
+        std::string_view mark_val(line.data() + split_pos + 1);
 
-		header.items[mark_id] = mark_val;
+        header.items[mark_id] = mark_val;
 
-		if (is.eof()) {
-			break;
-		}
+        if (is.eof())
+        {
+            break;
+        }
 
-		getline(is, line);
-		Strip(line);
-	}
+        getline(is, line);
+        Strip(line);
+    }
 
-	return is;
+    return is;
 }
-ostream& operator<<(ostream& os, const Header& header) {
-	for (auto& item : header.items) {
-		os << item.first << "=" << item.second << endl;
-	}
+ostream& operator<<(ostream& os, const Header& header)
+{
+    for (auto& item : header.items)
+    {
+        os << item.first << "=" << item.second << CRLF();
+    }
 
-	// 第一小节的分隔线
-	os << "--";
+    // 第一小节的分隔线
+    os << "--";
 
-	return os;
+    return os;
 }

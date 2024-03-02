@@ -21,6 +21,7 @@
 */
 
 #include "src/misc/utilities.h"
+#include <memory>
 
 struct ICurveFunctor {
 	double amp = 0;

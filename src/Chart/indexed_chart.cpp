@@ -679,40 +679,40 @@ std::string IndexedChart::ExportToString()
 
 std::ostream& operator<<(std::ostream& os, IndexedChart ic)
 {
-    os << "total_time=" << ic.total_time << endl;
-    os << "-----------" << endl;
+    os << "total_time=" << ic.total_time << CRLF();
+    os << "-----------" << CRLF();
 
     for (int i = 0; i < 4; ++i)
     {
-        os << "section BT-" << static_cast<char>('A' + i) << endl;
-        os << ic.bt_lists[i] << endl;
+        os << "section BT-" << static_cast<char>('A' + i) << CRLF();
+        os << ic.bt_lists[i] << CRLF();
     }
 
-    os << "section FX-L" << endl;
-    os << ic.fx_lists[0] << endl;
-    os << "section FX-R" << endl;
-    os << ic.fx_lists[1] << endl;
+    os << "section FX-L" << CRLF();
+    os << ic.fx_lists[0] << CRLF();
+    os << "section FX-R" << CRLF();
+    os << ic.fx_lists[1] << CRLF();
 
-    os << "section Knob-L" << endl;
-    os << ic.knob_lists[0] << endl;
-    os << "section Knob-R" << endl;
-    os << ic.knob_lists[1] << endl;
+    os << "section Knob-L" << CRLF();
+    os << ic.knob_lists[0] << CRLF();
+    os << "section Knob-R" << CRLF();
+    os << ic.knob_lists[1] << CRLF();
 
     for (int i = 0; i < MarkTypesCount; ++i)
     {
         MarkType mark = MarkByIndex(i);
         Side side = MarkSideByIndex(i);
-        os << "section " << MarkStr(mark, side) << endl;
-        os << ic.mark_lists[i] << endl;
+        os << "section " << MarkStr(mark, side) << CRLF();
+        os << ic.mark_lists[i] << CRLF();
     }
 
-    os << "section Spin Effect" << endl;
-    os << ic.spin_effect_list << endl;
+    os << "section Spin Effect" << CRLF();
+    os << ic.spin_effect_list << CRLF();
 
-    os << "section Comments" << endl;
-    os << ic.comment_list << endl;
+    os << "section Comments" << CRLF();
+    os << ic.comment_list << CRLF();
 
-    os << "section Other Items" << endl;
+    os << "section Other Items" << CRLF();
     os << ic.other_items_list;
 
     return os;

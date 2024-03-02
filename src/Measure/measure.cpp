@@ -112,7 +112,7 @@ std::string Measure::ExportToKsh() {
 	std::string output = "";
 	for (Entry& entry : this->entries) {
 		if (&entry != this->entries.data()) {
-			output.push_back('\n');
+			output += CRLF();
 		}
 		output.append(std::move(entry.ExportToKsh()));
 		
@@ -202,7 +202,7 @@ istream& operator>>(istream& is, Measure& measure) {
 
 ostream& operator<<(ostream& os, const Measure& measure) {
 	for (const Entry& entry : measure.entries) {
-		os << entry.ExportToKsh() << endl;
+		os << entry.ExportToKsh() << CRLF();
 	}
 
 	// 小节线

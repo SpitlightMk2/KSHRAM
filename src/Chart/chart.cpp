@@ -67,10 +67,11 @@ bool Chart::ImportFromString(const string& ksh) {
 		}
 	}
 
+	custom_fx.clear();
 	while (!ksh_stream.eof() && !ksh_stream.fail()) {
 		string temp;
 		getline(ksh_stream, temp);
-		custom_fx += temp + "\n";
+		custom_fx += temp + CRLF();
 	}
 
 	if(ksh_stream.fail() && !ksh_stream.eof()) // 没正常读完
@@ -95,9 +96,9 @@ inline void WriteBOM(ostream& os) {
 string Chart::ExportToString() {
 	ostringstream output_stream;
 	WriteBOM(output_stream);
-	output_stream << header << endl;
+	output_stream << header << CRLF();
 	for (const Measure& measure : this->measures) {
-		output_stream << measure << endl;
+		output_stream << measure << CRLF();
 	}
 
 	output_stream << custom_fx;
