@@ -30,6 +30,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , settings("recent_path.cfg",QSettings::IniFormat)
 {
     ui->setupUi(this);
 
