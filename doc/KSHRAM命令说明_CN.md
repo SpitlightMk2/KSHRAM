@@ -704,15 +704,15 @@ loop 4 2 {cl p t;cr p t}
 定义可以写在额外的文件当中。
 
 ```
-# 定义
+// 定义
 batch define [name] [batch commands...]
              STRING      COMMAND
 
-# 使用
+// 使用
 batch call [name]
            STRING
 
-# 从文件读取
+// 从文件读取
 batch import [file path]
                STRING
 ```
@@ -722,7 +722,7 @@ batch import [file path]
 命令组的名称。名称不能包含：包括空格和制表符在内的空白字符，花括号（这可能会变得更严格）。<br>
 建议以编程语言所允许的变量命名规则来为命令组起名。
 
-`batch commands`
+`[batch commands]`
 
 命令组的内容。
 
@@ -742,7 +742,8 @@ batch define bump4
         // 这是一行注释
         ztadd sq 1 32 25;
         zbadd sq 1 32 25;
-    }
+    // 外层命令的末尾记得要给分号
+    };
 }
 
 batch define fifsnake
@@ -765,7 +766,7 @@ batch define fifsnake
 
 ```
 
-`file path`
+`[file path]`
 
 要打开的文件位置。<br>
 可以相对于以下路径指定：

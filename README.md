@@ -49,7 +49,7 @@ KSHRAM.exe 输入谱面路径 输出位置
 The K-Shoot Mania editor has a function to insert comments into a chart.<br>
 By writing commands in these comments and calling KSHRAM, these commands will be translated to certain manipulations on the charts.
 
-The document of all available commands is [here](doc/KSHRAM命令说明_CN.md).
+The document of all available commands is [here](<doc/KSHRAM commands guide_EN.md>).
 
 The program comes either in console style or with a GUI supported by Qt.
 

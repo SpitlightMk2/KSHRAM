@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
 
 # 项目设置
-project(KSHRAM VERSION 1.0.0)
+project(KSHRAM VERSION 1.0.1)
 
 # 选择编译器
 # SET(CMAKE_CXX_COMPILER "/usr/bin/gcc")
