@@ -318,9 +318,14 @@ CommandMap ApplicationBus::Compile(const CommandMap& map, ErrorStack& err_stack)
                 {
                     for (std::shared_ptr<ICompiler>& app : entrance->second)
                     {
-                        cmd_is_valid = app->Compile(command, input_map, err_stack);
+                        CommandMap submap;
+                        cmd_is_valid = app->Compile(command, submap, err_stack);
                         if (cmd_is_valid)
                         {
+                            for(auto& [time, cmd] : submap)
+                            {
+                                compiled_map.insert(time, cmd);
+                            }
                             break;
                         }
                     }

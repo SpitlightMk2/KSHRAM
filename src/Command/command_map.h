@@ -26,6 +26,7 @@
 #include "src/IndexList/index_list.h"
 
 /// 存储一系列命令的表。同时被用于表示谱面所有命令的总表和一个batch所包含的命令。
+/// 命令表的索引是执行时刻（影响执行顺序），而命令自带的time属性是作用时刻。
 class CommandMap {
 
 public:

@@ -83,7 +83,7 @@ bool Looper::Compile(const Command& cmd, CommandMap& cmd_map, ErrorStack& err_st
         for (auto& [inner_time,subcmd] : subcmds)
         {
             subcmd.time() = time + inner_time;
-            cmd_map.insert(time + inner_time, subcmd);
+            cmd_map.insert(cmd.time() + inner_time, subcmd);
         }
         time += step;
     }

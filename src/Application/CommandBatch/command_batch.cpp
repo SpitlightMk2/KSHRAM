@@ -96,7 +96,15 @@ bool CommandBatch::DefineBatch(
 
     cmds.ImportFromString(content);
 
+    cmds = bus.Compile(cmds, err_stack);
+
+    if(!err_stack.empty())
+    {
+        return false;
+    }
+
     batch_map.insert_or_assign(name, std::move(cmds));
+    
     return true;
 }
 

@@ -65,11 +65,10 @@ bool Delay::Compile(const Command& cmd, CommandMap& cmd_map, ErrorStack& err_sta
     }
 
     // 写入
-    int time = cmd.time() + delay_step;
     for (auto& [local_time, subcmd] : subcmds)
     {
-        subcmd.time() = time + local_time;
-        cmd_map.insert(time + local_time, subcmd);
+        subcmd.time() = cmd.time()  + delay_step + local_time;
+        cmd_map.insert(cmd.time() + local_time, subcmd);
     }
 
     return true;
